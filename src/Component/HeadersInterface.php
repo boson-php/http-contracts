@@ -2,9 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Boson\Contracts\Http;
+namespace Boson\Contracts\Http\Component;
 
 /**
+ * @phpstan-type HeadersListOutputType array<non-empty-lowercase-string, list<string>>
+ *
  * @template-extends \Traversable<non-empty-lowercase-string, string>
  */
 interface HeadersInterface extends \Traversable, \Countable
@@ -46,4 +48,9 @@ interface HeadersInterface extends \Traversable, \Countable
      * @return int<0, max>
      */
     public function count(): int;
+
+    /**
+     * @return HeadersListOutputType
+     */
+    public function toArray(): array;
 }
