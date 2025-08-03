@@ -34,6 +34,6 @@ interface MutableBodyProviderInterface extends BodyProviderInterface
          * @throws InvalidComponentArgumentExceptionInterface in case of new
          *         passed body value is invalid
          */
-        set(string|\Stringable $body);
+        set(\Stringable|string $body);
     }
 }

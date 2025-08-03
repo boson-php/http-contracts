@@ -9,9 +9,9 @@ use Boson\Contracts\Http\Exception\InvalidComponentArgumentExceptionInterface;
 /**
  * A collection of headers and their values as defined in RFC 2616
  *
- * @phpstan-type InHeaderNameType non-empty-string|\Stringable
+ * @phpstan-type InHeaderNameType \Stringable|non-empty-string
  * @phpstan-type OutHeaderNameType non-empty-lowercase-string
- * @phpstan-type InHeaderValueType string|\Stringable
+ * @phpstan-type InHeaderValueType \Stringable|string
  * @phpstan-type OutHeaderValueType string
  * @phpstan-type InHeaderValuesType InHeaderValueType|iterable<mixed, InHeaderValueType>
  * @phpstan-type OutHeaderValuesType list<OutHeaderValueType>
@@ -35,7 +35,7 @@ interface HeadersInterface extends \Traversable, \Countable
      * @throws InvalidComponentArgumentExceptionInterface in case of header name
      *         or default value is not valid
      */
-    public function first(string|\Stringable $name, string|\Stringable|null $default = null): ?string;
+    public function first(\Stringable|string $name, \Stringable|string|null $default = null): ?string;
 
     /**
      * Returns headers list by name
@@ -45,7 +45,7 @@ interface HeadersInterface extends \Traversable, \Countable
      * @return OutHeaderValuesType
      * @throws InvalidComponentArgumentExceptionInterface
      */
-    public function all(string|\Stringable $name): array;
+    public function all(\Stringable|string $name): array;
 
     /**
      * Returns {@see true} if the HTTP header is defined.
@@ -54,7 +54,7 @@ interface HeadersInterface extends \Traversable, \Countable
      *
      * @throws InvalidComponentArgumentExceptionInterface
      */
-    public function has(string|\Stringable $name): bool;
+    public function has(\Stringable|string $name): bool;
 
     /**
      * Returns {@see true} if the given HTTP header contains
@@ -65,7 +65,7 @@ interface HeadersInterface extends \Traversable, \Countable
      *
      * @throws InvalidComponentArgumentExceptionInterface
      */
-    public function contains(string|\Stringable $name, string|\Stringable $value): bool;
+    public function contains(\Stringable|string $name, \Stringable|string $value): bool;
 
     /**
      * Gets count of the headers.

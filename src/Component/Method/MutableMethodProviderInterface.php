@@ -36,6 +36,6 @@ interface MutableMethodProviderInterface extends MethodProviderInterface
          * @throws InvalidComponentArgumentExceptionInterface in case of new
          *         HTTP method is invalid
          */
-        set(string|\Stringable $method);
+        set(MethodInterface|\Stringable|string $method);
     }
 }

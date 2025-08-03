@@ -28,7 +28,7 @@ interface MutableHeadersInterface extends HeadersInterface
      *
      * @throws InvalidComponentArgumentExceptionInterface
      */
-    public function set(string|\Stringable $name, iterable|string|\Stringable $values): void;
+    public function set(\Stringable|string $name, \Stringable|string|iterable $values): void;
 
     /**
      * Adds new header value appended with the given value.
@@ -40,7 +40,7 @@ interface MutableHeadersInterface extends HeadersInterface
      *
      * @throws InvalidComponentArgumentExceptionInterface
      */
-    public function add(string|\Stringable $name, string|\Stringable $value): void;
+    public function add(\Stringable|string $name, \Stringable|string $value): void;
 
     /**
      * Removes the specified header.
@@ -51,7 +51,7 @@ interface MutableHeadersInterface extends HeadersInterface
      *
      * @throws InvalidComponentArgumentExceptionInterface
      */
-    public function remove(string|\Stringable $name): void;
+    public function remove(\Stringable|string $name): void;
 
     /**
      * Remove all headers from headers list.

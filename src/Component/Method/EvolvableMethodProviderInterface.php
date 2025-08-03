@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Boson\Contracts\Http\Component\Method;
 
+use Boson\Contracts\Http\Component\MethodInterface;
 use Boson\Contracts\Http\Exception\InvalidComponentArgumentExceptionInterface;
 
 /**
@@ -12,7 +13,7 @@ use Boson\Contracts\Http\Exception\InvalidComponentArgumentExceptionInterface;
  * Allows to modify HTTP method value using instance value as a prototype
  * without changing the object itself.
  *
- * @phpstan-type InMethodType non-empty-string|\Stringable
+ * @phpstan-type InMethodType MethodInterface|\Stringable|non-empty-string
  */
 interface EvolvableMethodProviderInterface extends MethodProviderInterface
 {
@@ -28,5 +29,5 @@ interface EvolvableMethodProviderInterface extends MethodProviderInterface
      * @throws InvalidComponentArgumentExceptionInterface in case of new
      *         HTTP method is invalid
      */
-    public function withMethod(string|\Stringable $method): self;
+    public function withMethod(MethodInterface|\Stringable|string $method): self;
 }

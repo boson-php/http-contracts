@@ -12,7 +12,7 @@ use Boson\Contracts\Http\Exception\InvalidComponentArgumentExceptionInterface;
  * Allows to modify HTTP body value using instance value as a prototype
  * without changing the object itself.
  *
- * @phpstan-type InBodyType string|\Stringable
+ * @phpstan-type InBodyType \Stringable|string
  */
 interface EvolvableBodyProviderInterface extends BodyProviderInterface
 {
@@ -28,5 +28,5 @@ interface EvolvableBodyProviderInterface extends BodyProviderInterface
      * @throws InvalidComponentArgumentExceptionInterface in case of new passed
      *         body value is invalid
      */
-    public function withBody(string|\Stringable $body): self;
+    public function withBody(\Stringable|string $body): self;
 }

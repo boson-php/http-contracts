@@ -13,7 +13,7 @@ use Boson\Contracts\Http\Exception\InvalidComponentArgumentExceptionInterface;
  * Allows to modify HTTP status code value using instance value as a prototype
  * without changing the object itself.
  *
- * @phpstan-type InStatusCodeType int|StatusCodeInterface
+ * @phpstan-type InStatusCodeType StatusCodeInterface|int
  */
 interface EvolvableStatusCodeProviderInterface extends StatusCodeProviderInterface
 {

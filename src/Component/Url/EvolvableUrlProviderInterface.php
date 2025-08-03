@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Boson\Contracts\Http\Component\Url;
 
 use Boson\Contracts\Http\Exception\InvalidComponentArgumentExceptionInterface;
+use Boson\Contracts\Uri\UriInterface;
 
 /**
  * Evolvable implementation of {@see UrlProviderInterface}.
@@ -12,7 +13,7 @@ use Boson\Contracts\Http\Exception\InvalidComponentArgumentExceptionInterface;
  * Allows to modify HTTP URL value using instance value as a prototype
  * without changing the object itself.
  *
- * @phpstan-type InUrlType string|\Stringable
+ * @phpstan-type InUrlType UriInterface|\Stringable|string
  */
 interface EvolvableUrlProviderInterface extends UrlProviderInterface
 {
@@ -28,5 +29,5 @@ interface EvolvableUrlProviderInterface extends UrlProviderInterface
      * @throws InvalidComponentArgumentExceptionInterface in case of new
      *         HTTP URL is invalid
      */
-    public function withUrl(string|\Stringable $url): self;
+    public function withUrl(UriInterface|\Stringable|string $url): self;
 }

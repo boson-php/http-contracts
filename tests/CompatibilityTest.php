@@ -111,7 +111,7 @@ final class CompatibilityTest extends TestCase
 
             public string $body {
                 get {}
-                set(string|\Stringable $body) {}
+                set(\Stringable|string $body) {}
             }
         };
     }
@@ -130,7 +130,7 @@ final class CompatibilityTest extends TestCase
 
             public function withHeaders(iterable $headers): self {}
 
-            public function withBody(string|\Stringable $body): self {}
+            public function withBody(\Stringable|string $body): self {}
         };
     }
 
@@ -145,17 +145,17 @@ final class CompatibilityTest extends TestCase
 
             public string $body {
                 get {}
-                set(string|\Stringable $body) {}
+                set(\Stringable|string $body) {}
             }
 
             public MethodInterface $method {
                 get {}
-                set(string|\Stringable $method) {}
+                set(MethodInterface|\Stringable|string $method) {}
             }
 
             public UriInterface $url {
                 get {}
-                set(string|\Stringable $url) {}
+                set(UriInterface|\Stringable|string $url) {}
             }
         };
     }
@@ -180,13 +180,13 @@ final class CompatibilityTest extends TestCase
                 get {}
             }
 
-            public function withMethod(string|\Stringable $method): self {}
+            public function withMethod(MethodInterface|\Stringable|string $method): self {}
 
-            public function withUrl(string|\Stringable $url): self {}
+            public function withUrl(UriInterface|\Stringable|string $url): self {}
 
             public function withHeaders(iterable $headers): self {}
 
-            public function withBody(string|\Stringable $body): self {}
+            public function withBody(\Stringable|string $body): self {}
         };
     }
 
@@ -201,7 +201,7 @@ final class CompatibilityTest extends TestCase
 
             public string $body {
                 get {}
-                set(string|\Stringable $body) {}
+                set(\Stringable|string $body) {}
             }
 
             public StatusCodeInterface $status {
@@ -227,7 +227,7 @@ final class CompatibilityTest extends TestCase
                 get {}
             }
 
-            public function withBody(string|\Stringable $body): self {}
+            public function withBody(\Stringable|string $body): self {}
 
             public function withStatus(StatusCodeInterface|int $status): self {}
 
@@ -239,13 +239,13 @@ final class CompatibilityTest extends TestCase
     public function testHeadersInterfaceCompatibility(): void
     {
         new class implements HeadersInterface, \IteratorAggregate {
-            public function first(string|\Stringable $name, string|\Stringable|null $default = null): ?string {}
+            public function first(\Stringable|string $name, \Stringable|string|null $default = null): ?string {}
 
-            public function all(string|\Stringable $name): array {}
+            public function all(\Stringable|string $name): array {}
 
-            public function has(string|\Stringable $name): bool {}
+            public function has(\Stringable|string $name): bool {}
 
-            public function contains(string|\Stringable $name, string|\Stringable $value): bool {}
+            public function contains(\Stringable|string $name, \Stringable|string $value): bool {}
 
             public function count(): int {}
 
@@ -259,13 +259,13 @@ final class CompatibilityTest extends TestCase
     public function testMutableHeadersInterfaceCompatibility(): void
     {
         new class implements MutableHeadersInterface, \IteratorAggregate {
-            public function first(string|\Stringable $name, string|\Stringable|null $default = null): ?string {}
+            public function first(\Stringable|string $name, \Stringable|string|null $default = null): ?string {}
 
-            public function all(string|\Stringable $name): array {}
+            public function all(\Stringable|string $name): array {}
 
-            public function has(string|\Stringable $name): bool {}
+            public function has(\Stringable|string $name): bool {}
 
-            public function contains(string|\Stringable $name, string|\Stringable $value): bool {}
+            public function contains(\Stringable|string $name, \Stringable|string $value): bool {}
 
             public function count(): int {}
 
@@ -273,11 +273,11 @@ final class CompatibilityTest extends TestCase
 
             public function getIterator(): \Traversable {}
 
-            public function set(string|\Stringable $name, iterable|string|\Stringable $values): void {}
+            public function set(\Stringable|string $name, iterable|\Stringable|string $values): void {}
 
-            public function add(string|\Stringable $name, string|\Stringable $value): void {}
+            public function add(\Stringable|string $name, \Stringable|string $value): void {}
 
-            public function remove(string|\Stringable $name): void {}
+            public function remove(\Stringable|string $name): void {}
 
             public function removeAll(): void {}
         };
@@ -287,13 +287,13 @@ final class CompatibilityTest extends TestCase
     public function testEvolvableHeadersInterfaceCompatibility(): void
     {
         new class implements EvolvableHeadersInterface, \IteratorAggregate {
-            public function first(string|\Stringable $name, string|\Stringable|null $default = null): ?string {}
+            public function first(\Stringable|string $name, \Stringable|string|null $default = null): ?string {}
 
-            public function all(string|\Stringable $name): array {}
+            public function all(\Stringable|string $name): array {}
 
-            public function has(string|\Stringable $name): bool {}
+            public function has(\Stringable|string $name): bool {}
 
-            public function contains(string|\Stringable $name, string|\Stringable $value): bool {}
+            public function contains(\Stringable|string $name, \Stringable|string $value): bool {}
 
             public function count(): int {}
 
@@ -301,11 +301,11 @@ final class CompatibilityTest extends TestCase
 
             public function getIterator(): \Traversable {}
 
-            public function withAddedHeader(string|\Stringable $name, string|\Stringable $value): self {}
+            public function withAddedHeader(\Stringable|string $name, \Stringable|string $value): self {}
 
-            public function withHeader(string|\Stringable $name, string|\Stringable|iterable $values): self {}
+            public function withHeader(\Stringable|string $name, \Stringable|string|iterable $values): self {}
 
-            public function withoutHeader(string|\Stringable $name): self {}
+            public function withoutHeader(\Stringable|string $name): self {}
         };
     }
 
@@ -371,7 +371,7 @@ final class CompatibilityTest extends TestCase
         new class implements MutableBodyProviderInterface {
             public string $body {
                 get {}
-                set(string|\Stringable $body) {}
+                set(\Stringable|string $body) {}
             }
         };
     }
@@ -382,7 +382,7 @@ final class CompatibilityTest extends TestCase
         new class implements EvolvableBodyProviderInterface {
             public string $body { get {} }
 
-            public function withBody(string|\Stringable $body): self {}
+            public function withBody(\Stringable|string $body): self {}
         };
     }
 
@@ -429,7 +429,7 @@ final class CompatibilityTest extends TestCase
         new class implements MutableMethodProviderInterface {
             public MethodInterface $method {
                 get {}
-                set(string|\Stringable $method) {}
+                set(MethodInterface|\Stringable|string $method) {}
             }
         };
     }
@@ -440,7 +440,7 @@ final class CompatibilityTest extends TestCase
         new class implements EvolvableMethodProviderInterface {
             public MethodInterface $method { get {} }
 
-            public function withMethod(string|\Stringable $method): self {}
+            public function withMethod(MethodInterface|\Stringable|string $method): self {}
         };
     }
 
@@ -458,7 +458,7 @@ final class CompatibilityTest extends TestCase
         new class implements MutableUrlProviderInterface {
             public UriInterface $url {
                 get {}
-                set(string|\Stringable $url) {}
+                set(UriInterface|\Stringable|string $url) {}
             }
         };
     }
@@ -469,7 +469,7 @@ final class CompatibilityTest extends TestCase
         new class implements EvolvableUrlProviderInterface {
             public UriInterface $url { get {} }
 
-            public function withUrl(string|\Stringable $url): self {}
+            public function withUrl(UriInterface|\Stringable|string $url): self {}
         };
     }
 

@@ -35,6 +35,6 @@ interface MutableUrlProviderInterface extends UrlProviderInterface
          * @throws InvalidComponentArgumentExceptionInterface in case of new
          *         HTTP URL is invalid
          */
-        set(string|\Stringable $url);
+        set(UriInterface|\Stringable|string $url);
     }
 }

@@ -24,7 +24,7 @@ interface EvolvableHeadersInterface extends HeadersInterface
      *
      * @throws InvalidComponentArgumentExceptionInterface
      */
-    public function withAddedHeader(string|\Stringable $name, string|\Stringable $value): self;
+    public function withAddedHeader(\Stringable|string $name, \Stringable|string $value): self;
 
     /**
      * @param InHeaderNameType $name
@@ -32,12 +32,12 @@ interface EvolvableHeadersInterface extends HeadersInterface
      *
      * @throws InvalidComponentArgumentExceptionInterface
      */
-    public function withHeader(string|\Stringable $name, string|\Stringable|iterable $values): self;
+    public function withHeader(\Stringable|string $name, \Stringable|string|iterable $values): self;
 
     /**
      * @param InHeaderNameType $name
      *
      * @throws InvalidComponentArgumentExceptionInterface
      */
-    public function withoutHeader(string|\Stringable $name): self;
+    public function withoutHeader(\Stringable|string $name): self;
 }
